@@ -1,0 +1,57 @@
+name: atv VOD Scraper
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # Her gece 02:00'de çalışır
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Repo'yu Çek
+        uses: actions/checkout@v3
+
+      - name: Python Kur
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Gerekli Python Kütüphanelerini Kur
+        run: |
+          pip install requests
+
+      - name: Scraper'ı Çalıştır
+        run: |
+          python atv.py
+
+      - name: Git yapılandırması
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name  "GitHub Actions"
+
+      # --- ÇÖZÜM BÖLÜMÜ (Çakışma Önleyici) ---
+      - name: Çakışmayı önlemek için değişiklikleri stash'e al
+        run: |
+          git add -A
+          git stash
+
+      - name: Uzaktaki (remote) son değişiklikleri çek
+        run: |
+          git pull --rebase
+
+      - name: Stash'teki değişiklikleri geri yükle
+        run: |
+          git stash pop || true
+      # --- ÇÖZÜM BİTİŞ ---
+
+      - name: M3U Çıktısını Commit Et
+        run: |
+          git add atv.m3u
+          # Değişiklik varsa commit et, yoksa hata verme
+          git diff --staged --quiet || git commit -m "atv playlist güncellendi [$(date +"%Y-%m-%d %H:%M:%S")]"
+          git push
