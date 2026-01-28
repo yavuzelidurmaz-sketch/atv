@@ -77,8 +77,6 @@ def get_all_content():
 def get_episodes(series_slug, series_name):
     """İçeriğin bölümlerini çeker"""
     episodes = []
-
-    # Haber bültenleri için /bolumler sayfası genelde çalışır
     bolumler_url = f"{BASE_URL}/{series_slug}/bolumler"
 
     try:
@@ -102,7 +100,7 @@ def get_episodes(series_slug, series_name):
                     if num_match:
                         ep_num = int(num_match.group(1))
                     
-                    # İsimlendirme mantığı: Eğer numara varsa "X. Bölüm", yoksa (tarih ise) direkt yaz.
+                    # İsimlendirme: Numara varsa "X. Bölüm", yoksa (tarih vb.) olduğu gibi bırak
                     final_name = f"{ep_name}. Bölüm" if ep_num > 0 and len(str(ep_num)) < 5 else ep_name
 
                     episodes.append({
@@ -114,37 +112,32 @@ def get_episodes(series_slug, series_name):
     except Exception as e:
         print(f"    Bölüm hatası: {e}")
 
-    # Sırala (Eskiden yeniye veya numaraya göre)
+    # Bölüm numarasına göre sırala (Eskiden yeniye)
     episodes.sort(key=lambda x: x['order'])
-    
-    # Haberlerde en yeni en üstte olsun isteyebilirsin, o zaman bu satırı aktif et:
-    # episodes.reverse() 
     
     return episodes
 
 def fix_fake_url(video_url):
     """
     Karmaşık ATV url'lerini düzeltir.
-    GÜNCELLEME: erbvr.com ve haber linkleri için özel kontrol eklendi.
+    Haberler ve özel tokenlı linkler için koruma sağlar.
     """
     if not video_url: return None
 
-    # --- YENİ EKLENEN KISIM (Haber Linkleri İçin) ---
-    # erbvr.com ve karmaşık tokenlı linkleri direkt kabul et
+    # --- ÖZEL KORUMA: Haber Linkleri ---
+    # erbvr.com ve karmaşık tokenlı linkleri BOZMADAN döndür
     if 'erbvr.com' in video_url or 'hlssubplaylist' in video_url:
         return video_url
-    # -----------------------------------------------
+    # -----------------------------------
 
     # Pattern: i.tmgrup.com.trvideo/dizi_001_...
     if 'i.tmgrup.com.trvideo/' in video_url:
         try:
             filename = video_url.split('/')[-1]
-            # karadayi_008_0150.mp4 -> dizi: karadayi, bolum: 008
             match = re.match(r'([a-zA-Z0-9-]+)_(\d+)_', filename)
             if match:
                 dizi = match.group(1)
                 bolum = int(match.group(2))
-                # Gerçek CDN adresi
                 real = f"https://atv-vod.ercdn.net/{dizi}/{bolum:03d}/{dizi}_{bolum:03d}.smil/playlist.m3u8"
                 return real
         except:
@@ -163,21 +156,20 @@ def extract_video_url(episode_url):
             url = fix_fake_url(match.group(1))
             if url: return url
 
-        # 2. Direkt mp4/m3u8 ve YENİ REGEXLER
+        # 2. Direkt mp4/m3u8 ve Gelişmiş Regexler
         patterns = [
             r'(https?://atv-vod\.ercdn\.net/[^\s"\']+\.m3u8[^\s"\']*)',
             r'src="(https?://[^"]+\.(?:mp4|m3u8)[^"]*)"',
             r'video-src="([^"]+)"',
-            # --- YENİ EKLENEN REGEX (Haberler için karmaşık token yakalayıcı) ---
+            # Haberler için tırnak içindeki karmaşık linkleri yakalayan regex
             r'["\'](https?://[^"\']+\.m3u8[^"\']*)["\']'
         ]
 
         for p in patterns:
             m = re.findall(p, r.text)
             for url in m:
-                # Fragman ve reklamları ele, temizle
                 if 'fragman' not in url and 'reklam' not in url:
-                    # Unicode temizliği (bazen \u0026 gelir)
+                    # Unicode temizliği
                     url = url.encode('utf-8').decode('unicode_escape')
                     fixed = fix_fake_url(url)
                     if fixed: return fixed
@@ -187,7 +179,7 @@ def extract_video_url(episode_url):
     return None
 
 def create_m3u(data):
-    """M3U Dosyası Oluşturur - HER İÇERİK KENDİ KLASÖRÜNE"""
+    """M3U Dosyası Oluşturur - HER ŞEY KENDİ KLASÖRÜNDE"""
     filename = "atv.m3u"
     print(f"\n📝 {filename} dosyası yazılıyor...")
 
@@ -195,8 +187,8 @@ def create_m3u(data):
         f.write("#EXTM3U\n")
 
         for slug, item in data.items():
-            # M3U Group Title mantığı değiştirildi:
-            # Artık genel grup (DIZI) yerine dizinin kendi adı (Kuruluş Osman) kategori oluyor.
+            # Kategori mantığı: item['group'] yerine item['name'] kullanıyoruz.
+            # Böylece her dizi/program M3U içinde kendi klasörüne sahip olur.
             group_folder = item['name'] 
             logo = item['logo']
 
@@ -204,18 +196,17 @@ def create_m3u(data):
                 ep_name = ep['name']
                 url = ep['url']
 
-                # Başlık formatı: Dizi Adı - Bölüm Adı (Kuruluş Osman - 130. Bölüm)
-                # İstersen sadece ep_name de kullanabilirsin ama bu daha düzenli.
+                # Başlık: Dizi Adı - Bölüm Adı
                 full_title = f"{group_folder} - {ep_name}"
                 
-                # group-title="{group_folder}" ile her dizi kendi klasörüne gider.
+                # group-title="{group_folder}" -> Klasörleme burası
                 f.write(f'#EXTINF:-1 group-title="{group_folder}" tvg-logo="{logo}",{full_title}\n')
                 f.write(f'{url}\n')
 
     print("✅ M3U Tamamlandı!")
 
 def main():
-    print("🚀 ATV VOD Scraper Başlatıldı (Gelişmiş Haber & Kategori Modu)...")
+    print("🚀 ATV VOD Scraper Başlatıldı (SINIRSIZ MOD)...")
 
     all_content = get_all_content()
     final_data = {}
@@ -228,13 +219,11 @@ def main():
 
         if episodes:
             valid_episodes = []
-            print(f"  -> {len(episodes)} bölüm bulundu, linkler çözülüyor...")
+            print(f"  -> {len(episodes)} bölüm bulundu, taranıyor...")
 
-            # Son 25 bölümü al (Hepsini almak istersen [:25] kısmını kaldır)
-            # Haberlerde güncellik önemli olduğu için listeyi ters çevirip kesmek mantıklı olabilir.
-            episodes_to_check = episodes[-25:] # Sondaki (en yeni numaralı) 25 bölümü alır.
-
-            for ep in episodes_to_check: 
+            # --- SINIRSIZ DÖNGÜ ---
+            # Burada herhangi bir [:25] limiti YOK. Hepsi taranacak.
+            for ep in episodes: 
                 video_url = extract_video_url(ep['url'])
                 if video_url:
                     valid_episodes.append({
@@ -246,7 +235,7 @@ def main():
                     print(f"    - {ep['name']} video bulunamadı.")
 
             if valid_episodes:
-                # M3U'da en yeni bölüm en üstte görünsün diye ters çeviriyoruz
+                # M3U'da en yeni bölümü en üste koymak için ters çeviriyoruz
                 valid_episodes.reverse()
                 
                 final_data[item['slug']] = {
