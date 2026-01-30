@@ -99,7 +99,7 @@ def get_episodes(series_slug, series_name):
                     num_match = re.search(r'^(\d+)', ep_name)
                     if num_match:
                         ep_num = int(num_match.group(1))
-                    
+
                     # İsimlendirme: Numara varsa "X. Bölüm", yoksa (tarih vb.) olduğu gibi bırak
                     final_name = f"{ep_name}. Bölüm" if ep_num > 0 and len(str(ep_num)) < 5 else ep_name
 
@@ -114,30 +114,39 @@ def get_episodes(series_slug, series_name):
 
     # Bölüm numarasına göre sırala (Eskiden yeniye)
     episodes.sort(key=lambda x: x['order'])
-    
+
     return episodes
 
 def fix_fake_url(video_url):
     """
     Karmaşık ATV url'lerini düzeltir.
-    Haberler ve özel tokenlı linkler için koruma sağlar.
+    Haberler, özel tokenlı linkler ve atv-vod.ercdn yapısı için koruma sağlar.
     """
     if not video_url: return None
 
-    # --- ÖZEL KORUMA: Haber Linkleri ---
-    # erbvr.com ve karmaşık tokenlı linkleri BOZMADAN döndür
+    # --- ÖZEL KORUMA ---
+    # 1. Zaten doğru formatta olan (ercdn) linkleri doğrudan döndür
+    if 'atv-vod.ercdn.net' in video_url:
+        return video_url
+
+    # 2. Haber ve canlı yayın tokenlı linkleri koru
     if 'erbvr.com' in video_url or 'hlssubplaylist' in video_url:
         return video_url
     # -----------------------------------
 
-    # Pattern: i.tmgrup.com.trvideo/dizi_001_...
+    # Pattern: i.tmgrup.com.trvideo/dizi_001_... -> atv-vod formatına çevir
     if 'i.tmgrup.com.trvideo/' in video_url:
         try:
             filename = video_url.split('/')[-1]
-            match = re.match(r'([a-zA-Z0-9-]+)_(\d+)_', filename)
+            
+            # GÜNCELLEME: Regex artık tire (-) yanına alt tire (_) de kabul ediyor.
+            # Örnek: cocuklar_duymasin_106_video... formatını yakalar.
+            match = re.match(r'([a-zA-Z0-9-_]+)_(\d+)_', filename)
+            
             if match:
                 dizi = match.group(1)
                 bolum = int(match.group(2))
+                # İstenen tam link yapısı:
                 real = f"https://atv-vod.ercdn.net/{dizi}/{bolum:03d}/{dizi}_{bolum:03d}.smil/playlist.m3u8"
                 return real
         except:
@@ -198,7 +207,7 @@ def create_m3u(data):
 
                 # Başlık: Dizi Adı - Bölüm Adı
                 full_title = f"{group_folder} - {ep_name}"
-                
+
                 # group-title="{group_folder}" -> Klasörleme burası
                 f.write(f'#EXTINF:-1 group-title="{group_folder}" tvg-logo="{logo}",{full_title}\n')
                 f.write(f'{url}\n')
@@ -237,7 +246,7 @@ def main():
             if valid_episodes:
                 # M3U'da en yeni bölümü en üste koymak için ters çeviriyoruz
                 valid_episodes.reverse()
-                
+
                 final_data[item['slug']] = {
                     'name': item['name'],
                     'group': item['group'],
