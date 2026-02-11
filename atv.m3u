@@ -1,4 +1,6 @@
 #EXTM3U
+#EXTINF:-1 group-title="A.B.İ." tvg-logo="https://iaatv.tmgrup.com.tr/4bef53/295/410/0/0/295/410",A.B.İ. - 5/Izle. Bölüm
+https://httxxkbiqd.erbvr.com/vms/8/70/a8/870a8ce5-dbf2-4768-ad21-14f40b275347/870a8ce5-dbf2-4768-ad21-14f40b275347_1080p_3000k.mp4
 #EXTINF:-1 group-title="A.B.İ." tvg-logo="https://iaatv.tmgrup.com.tr/4bef53/295/410/0/0/295/410",A.B.İ. - 4/Izle. Bölüm
 https://httxxkbiqd.erbvr.com/vms/c/bf/26/cbf26662-6897-4030-8e3d-b88e69709f3e/cbf26662-6897-4030-8e3d-b88e69709f3e_1080p_3000k.mp4
 #EXTINF:-1 group-title="A.B.İ." tvg-logo="https://iaatv.tmgrup.com.tr/4bef53/295/410/0/0/295/410",A.B.İ. - 3/Izle. Bölüm
@@ -2797,8 +2799,6 @@ https://atv-vod.ercdn.net/kirgin_cicekler/068/kirgin_cicekler_068.smil/playlist.
 https://i.tmgrup.com.trvideo/kirgin_cicekler_067
 #EXTINF:-1 group-title="Kırgın Çiçekler" tvg-logo="https://iaatv.tmgrup.com.tr/8e5687/0/0/0/0/0/0",Kırgın Çiçekler - 66/Izle. Bölüm
 https://atv-vod.ercdn.net/kirgin_cicekler/066/kirgin_cicekler_066.smil/playlist.m3u8
-#EXTINF:-1 group-title="Kırgın Çiçekler" tvg-logo="https://iaatv.tmgrup.com.tr/8e5687/0/0/0/0/0/0",Kırgın Çiçekler - 65/Izle. Bölüm
-https://atv-vod.ercdn.net/kirgin_cicekler/065/kirgin_cicekler_065.smil/playlist.m3u8
 #EXTINF:-1 group-title="Kırgın Çiçekler" tvg-logo="https://iaatv.tmgrup.com.tr/8e5687/0/0/0/0/0/0",Kırgın Çiçekler - 64/Izle. Bölüm
 https://atv-vod.ercdn.net/kirgin_cicekler/064/kirgin_cicekler_064.smil/playlist.m3u8
 #EXTINF:-1 group-title="Kırgın Çiçekler" tvg-logo="https://iaatv.tmgrup.com.tr/8e5687/0/0/0/0/0/0",Kırgın Çiçekler - 63/Izle. Bölüm
@@ -11285,6 +11285,8 @@ https://atv-vod.ercdn.net/video/2020/04/79e1f5f8-2a18-4274-bfee-310ca4c7a963_080
 https://atv-vod.ercdn.net/video/2020/04/06f226f7-3d02-44f1-af5c-41856be8b9da_0800.mp4
 #EXTINF:-1 group-title="Süper Baba" tvg-logo="https://iaatv.tmgrup.com.tr/ba7656/0/0/0/0/0/0",Süper Baba - 1/Izle. Bölüm
 https://atv-vod.ercdn.net/video/2020/04/18beeb87-c73d-4ba0-a22c-da142cbf725c_0800.mp4
+#EXTINF:-1 group-title="ATV Ana Haber" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV Ana Haber - 10094/Izle
+https://httxxkbiqd.erbvr.com/vms/2/6d/16/26d16894-97d6-499f-8181-4533d44719c6/26d16894-97d6-499f-8181-4533d44719c6_1080p_3000k.mp4
 #EXTINF:-1 group-title="ATV Ana Haber" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV Ana Haber - 10093/Izle
 https://httxxkbiqd.erbvr.com/vms/2/35/5d/2355d3dd-1399-4f9d-95f3-61aa16f63fa3/2355d3dd-1399-4f9d-95f3-61aa16f63fa3_1080p_3000k.mp4
 #EXTINF:-1 group-title="ATV Ana Haber" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV Ana Haber - 10092/Izle
@@ -19525,6 +19527,8 @@ https://atv-vod.ercdn.net/atv_haber/20140722/atv_haber_20140722.smil/playlist.m3
 https://atv-vod.ercdn.net/atv_haber/20140721/atv_haber_20140721.smil/playlist.m3u8
 #EXTINF:-1 group-title="ATV Ana Haber" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV Ana Haber - 1420/Izle. Bölüm
 https://atv-vod.ercdn.net/atv_haber/20140720/atv_haber_20140720.smil/playlist.m3u8
+#EXTINF:-1 group-title="ATV Ana Haber" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV Ana Haber - 1419/Izle. Bölüm
+https://atv-vod.ercdn.net/atv_haber/20140719/atv_haber_20140719.smil/playlist.m3u8
 #EXTINF:-1 group-title="ATV Ana Haber" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV Ana Haber - 1418/Izle. Bölüm
 https://atv-vod.ercdn.net/atv_haber/20140718/atv_haber_20140718.smil/playlist.m3u8
 #EXTINF:-1 group-title="ATV Ana Haber" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV Ana Haber - 1417/Izle. Bölüm
@@ -22253,6 +22257,8 @@ https://atv-vod.ercdn.net/atv_haber/20100809/atv_haber_20100809.smil/playlist.m3
 https://atv-vod.ercdn.net/atv_haber/20100808/atv_haber_20100808.smil/playlist.m3u8
 #EXTINF:-1 group-title="ATV Ana Haber" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV Ana Haber - 1/Izle. Bölüm
 https://atv-vod.ercdn.net/atv_haber/20100807/atv_haber_20100807.smil/playlist.m3u8
+#EXTINF:-1 group-title="Kahvaltı Haberleri" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",Kahvaltı Haberleri - 2219/Izle. Bölüm
+https://httxxkbiqd.erbvr.com/vms/8/fd/0d/8fd0d7b8-22a1-428e-aecc-f0157d422332/8fd0d7b8-22a1-428e-aecc-f0157d422332_720p_2000k.mp4
 #EXTINF:-1 group-title="Kahvaltı Haberleri" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",Kahvaltı Haberleri - 2218/Izle. Bölüm
 https://httxxkbiqd.erbvr.com/vms/e/83/6f/e836fbc6-d25f-4cc4-b594-195b65e93bd8/e836fbc6-d25f-4cc4-b594-195b65e93bd8_1080p_3000k.mp4
 #EXTINF:-1 group-title="Kahvaltı Haberleri" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",Kahvaltı Haberleri - 2217/Izle. Bölüm
@@ -26679,6 +26685,8 @@ https://atv-vod.ercdn.net/kahvalti_haberleri/003/kahvalti_haberleri_003.smil/pla
 https://atv-vod.ercdn.net/kahvalti_haberleri/002/kahvalti_haberleri_002.smil/playlist.m3u8
 #EXTINF:-1 group-title="Kahvaltı Haberleri" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",Kahvaltı Haberleri - 1/Izle. Bölüm
 https://atv-vod.ercdn.net/kahvalti_haberleri/001/kahvalti_haberleri_001.smil/playlist.m3u8
+#EXTINF:-1 group-title="Gün Ortası Bülteni" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",Gün Ortası Bülteni - 1221/Izle. Bölüm
+https://httxxkbiqd.erbvr.com/vms/d/c2/da/dc2dacec-0f55-432f-b2e3-0456594d2c32/dc2dacec-0f55-432f-b2e3-0456594d2c32_1080p_3000k.mp4
 #EXTINF:-1 group-title="Gün Ortası Bülteni" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",Gün Ortası Bülteni - 1220/Izle. Bölüm
 https://httxxkbiqd.erbvr.com/vms/c/0b/48/c0b48693-d894-4cb2-bebf-2fb3b5e668b4/c0b48693-d894-4cb2-bebf-2fb3b5e668b4_1080p_3000k.mp4
 #EXTINF:-1 group-title="Gün Ortası Bülteni" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",Gün Ortası Bülteni - 1219/Izle. Bölüm
