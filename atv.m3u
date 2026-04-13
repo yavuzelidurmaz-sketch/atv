@@ -2783,8 +2783,6 @@ https://atv-vod.ercdn.net/kirgin_cicekler/097/kirgin_cicekler_097.smil/playlist.
 https://atv-vod.ercdn.net/kirgin_cicekler/096/kirgin_cicekler_096.smil/playlist.m3u8
 #EXTINF:-1 group-title="Kırgın Çiçekler" tvg-logo="https://iaatv.tmgrup.com.tr/8e5687/0/0/0/0/0/0",Kırgın Çiçekler - 95/Izle. Bölüm
 https://atv-vod.ercdn.net/kirgin_cicekler/095/kirgin_cicekler_095.smil/playlist.m3u8
-#EXTINF:-1 group-title="Kırgın Çiçekler" tvg-logo="https://iaatv.tmgrup.com.tr/8e5687/0/0/0/0/0/0",Kırgın Çiçekler - 94/Izle. Bölüm
-https://atv-vod.ercdn.net/kirgin_cicekler/094/kirgin_cicekler_094.smil/playlist.m3u8
 #EXTINF:-1 group-title="Kırgın Çiçekler" tvg-logo="https://iaatv.tmgrup.com.tr/8e5687/0/0/0/0/0/0",Kırgın Çiçekler - 93/Izle. Bölüm
 https://atv-vod.ercdn.net/kirgin_cicekler/093/kirgin_cicekler_093.smil/playlist.m3u8
 #EXTINF:-1 group-title="Kırgın Çiçekler" tvg-logo="https://iaatv.tmgrup.com.tr/8e5687/0/0/0/0/0/0",Kırgın Çiçekler - 92/Izle. Bölüm
@@ -11403,6 +11401,8 @@ https://atv-vod.ercdn.net/video/2020/04/79e1f5f8-2a18-4274-bfee-310ca4c7a963_080
 https://atv-vod.ercdn.net/video/2020/04/06f226f7-3d02-44f1-af5c-41856be8b9da_0800.mp4
 #EXTINF:-1 group-title="Süper Baba" tvg-logo="https://iaatv.tmgrup.com.tr/ba7656/0/0/0/0/0/0",Süper Baba - 1/Izle. Bölüm
 https://atv-vod.ercdn.net/video/2020/04/18beeb87-c73d-4ba0-a22c-da142cbf725c_0800.mp4
+#EXTINF:-1 group-title="ATV Ana Haber" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV Ana Haber - 10155/Izle
+https://httxxkbiqd.erbvr.com/vms/e/2c/ee/e2ceeaa7-69c4-4cb0-ace7-6f38b92fe7e9/e2ceeaa7-69c4-4cb0-ace7-6f38b92fe7e9_1080p_3000k.mp4
 #EXTINF:-1 group-title="ATV Ana Haber" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV Ana Haber - 10154/Izle
 https://httxxkbiqd.erbvr.com/vms/4/26/28/42628e0e-38ce-49b8-b0bf-ad2d4966037a/42628e0e-38ce-49b8-b0bf-ad2d4966037a_1080p_3000k.mp4
 #EXTINF:-1 group-title="ATV Ana Haber" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV Ana Haber - 10153/Izle
@@ -29523,6 +29523,8 @@ https://atv-vod.ercdn.net/video/program/gun-ortasi-bulteni/3_6zgg/7c46dc3a-15ba-
 https://atv-vod.ercdn.net/video/program/gun-ortasi-bulteni/2_czsx/1d08139f-e8d5-42b1-84ba-6b74e44c9ff7_1000.mp4
 #EXTINF:-1 group-title="Gün Ortası Bülteni" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",Gün Ortası Bülteni - 1/Izle. Bölüm
 https://atv-vod.ercdn.net/video/program/gun-ortasi-bulteni/1_hyuh/4fe1bb38-c9e5-4bf0-bfa9-ca6a0ba11931_0400.mp4
+#EXTINF:-1 group-title="ATV'de Hafta Sonu" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV'de Hafta Sonu - 827/Izle. Bölüm
+https://httxxkbiqd.erbvr.com/vms/f/62/1d/f621dfba-62a8-49a4-a587-416ea544e069/f621dfba-62a8-49a4-a587-416ea544e069_1080p_3000k.mp4
 #EXTINF:-1 group-title="ATV'de Hafta Sonu" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV'de Hafta Sonu - 826/Izle. Bölüm
 https://httxxkbiqd.erbvr.com/vms/4/c2/b8/4c2b844f-03c8-4fa5-a5ec-abe489828bd8/4c2b844f-03c8-4fa5-a5ec-abe489828bd8_1080p_3000k.mp4
 #EXTINF:-1 group-title="ATV'de Hafta Sonu" tvg-logo="https://www.atv.com.tr/assets/img/atv-logo-meta.jpg",ATV'de Hafta Sonu - 825/Izle. Bölüm
